@@ -1,16 +1,18 @@
 interface Props {
-  label: string;
-  imageUrl?: string;
-  borderColor?: string;
   backgroundColor?: string;
+  borderColor?: string;
+  fullWidth?: boolean;
+  imageUrl?: string;
+  label: string;
   textColor?: string;
 }
 
 const Button = ({
-  label,
-  imageUrl,
   backgroundColor,
   borderColor,
+  fullWidth,
+  imageUrl,
+  label,
   textColor,
 }: Props) => {
   return (
@@ -19,7 +21,7 @@ const Button = ({
         backgroundColor
           ? `${backgroundColor} ${textColor} ${borderColor}`
           : 'bg-coral-red border-coral-red text-white'
-      } rounded-full font-montserrat`}
+      } rounded-full font-montserrat ${fullWidth && 'w-full'}`}
     >
       {label}
       {imageUrl && (
